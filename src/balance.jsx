@@ -6,15 +6,11 @@ export default function ShowBalance() {
     const wallet = useWallet();
 
     async function getBalanceNow() {
-        const balanceTag = document.getElementById("balance")
         const balance = wallet.publicKey ? await connection.getBalance(wallet.publicKey) / LPS : '-';
-        balanceTag.innerHTML = balance
+        document.getElementById("balance").innerHTML = balance
     }
     getBalanceNow();
-    return (
-        <>
-            <p>Your balance is <b id="balance"></b> SOL</p>
-        </>
-    );
+
+    return <p>Your balance is <b id="balance"></b> SOL</p>;
 
 }
