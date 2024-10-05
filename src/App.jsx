@@ -10,6 +10,10 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import Airdrop from './airdrop';
 import ShowBalance from './balance';
 import SignMessage from './signMessage';
+import SendTransaction from './sendTransaction'; 
+import { Buffer } from 'buffer';
+
+window.Buffer = Buffer;
 
 function App() {
 	return (
@@ -20,8 +24,9 @@ function App() {
 					<WalletMultiButton></WalletMultiButton>
 					<WalletDisconnectButton></WalletDisconnectButton>
 					<Airdrop></Airdrop>
-					<ShowBalance></ShowBalance>
+					{/* <ShowBalance></ShowBalance> */}
 					<SignMessage></SignMessage>
+					<SendTransaction></SendTransaction>
 				</WalletModalProvider>
 			</WalletProvider>
 		</ConnectionProvider>

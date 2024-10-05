@@ -13,14 +13,11 @@ export default function SignMessage() {
         if (message === '') throw new Error("Empty message");
 
         const encodedMessage = new TextEncoder().encode(message);
-        console.log('message, encodedMessage', message, encodedMessage)
         const signature = await signMessage(encodedMessage)
-        console.log(signature)
 
         if (!ed25519.verify(signature, encodedMessage, publicKey.toBytes())) {
             throw new Error("Invalid Message Signature")
         }
-        console.log(`Message signature: ${ bs58.encode(signature) }`)
         alert(`Success! Message signature:  ${bs58.encode(signature)}`)
     }
 
